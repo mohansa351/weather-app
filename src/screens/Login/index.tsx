@@ -1,12 +1,10 @@
-import { View, Text, ScrollView, Switch, Image, ActivityIndicator, TouchableOpacity, Alert } from 'react-native'
+import { View, Text, ScrollView, Image, ActivityIndicator, TouchableOpacity, Alert } from 'react-native'
 import React, { useEffect, useRef, useState } from 'react'
 import { styles } from './styles'
 import LinearGradient from 'react-native-linear-gradient'
 import { requestgetTempData } from '../../services/backend_helper'
-import { convertIntoCelsius, fonts, formatDate, hasTimePassed, WhichdayToday } from '../../utils/misc'
-import { shadowStyle } from '../../style/typography'
+import { convertIntoCelsius, fonts, formatDate, hasTimePassed } from '../../utils/misc'
 import { COLORS, ms } from '../../style'
-import { ActionSheetRef } from 'react-native-actions-sheet'
 import { GooglePlacesAutocomplete } from 'react-native-google-places-autocomplete'
 import { MAP_KEY } from '../../services/api_helper'
 import { CrossBorderIcon, SearchIcons, SmallLocationIcon } from '../../component/svgImg'
@@ -39,7 +37,7 @@ const Login = ({ navigation, route }: any) => {
       console.log(error)
     }
   }
-  const [isEnabled, setIsEnabled] = useState(false); // State to manage toggle
+  const [isEnabled, setIsEnabled] = useState(false); 
   const [address, setAddress] = useState('');
 
   const toggleSwitch = () => setIsEnabled((previousState) => !previousState);
@@ -140,7 +138,6 @@ const Login = ({ navigation, route }: any) => {
                 key: MAP_KEY,
                 language: 'en',
                 type: ['establishment', 'street_address'], 
-
                 components: 'country:in',
                 location: `23.2594, 76.1465`,
                 radius: 10
@@ -152,12 +149,11 @@ const Login = ({ navigation, route }: any) => {
                 type: 'restaurant',
                 location: `23.2594, 76.1465`,
                 language: 'en',
-
                 radius: 10
               }}
 
               renderRow={(rowData) => {
-                // if (!rowData?.description) return null;
+                if (!rowData?.description) return null;
                 return (
                   <View style={{ flexDirection: 'row', alignItems: 'center' }}>
                     <SmallLocationIcon style={{ marginRight: 15 }} />
@@ -193,9 +189,6 @@ const Login = ({ navigation, route }: any) => {
                 ) : null
               }
             />
-
-
-
           </View>
           <View style={styles.ViewGr}>
             <Image source={require('../../../assets/image/weatherLogo.png')} style={{ height: 200, width: "90%", }} resizeMode='contain' />
@@ -243,12 +236,9 @@ const Login = ({ navigation, route }: any) => {
                     </>
                   )
                 }
-
-
               </ScrollView>
               <View style={{ height: 100 }} />
             </LinearGradient>
-
           </View>
         </ScrollView>
       </LinearGradient>

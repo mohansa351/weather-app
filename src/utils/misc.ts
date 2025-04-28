@@ -16,9 +16,6 @@ export const fonts = {
 }
 
 
-export function mediaImage(url: any) {
-    return `${API_URL}/public/uploads/${url}`
-}
 
 export function convertIntoCelsius(fahrenheit: any) {
     return ((fahrenheit - 32) * 5) / 9;
@@ -26,24 +23,22 @@ export function convertIntoCelsius(fahrenheit: any) {
 
 export function WhichdayToday(fahrenheit: any) {
     const daysOfWeek = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
-    const date = new Date(fahrenheit); // Convert the string to a Date object
-    return daysOfWeek[date.getDay()]; // Get the day name
+    const date = new Date(fahrenheit); 
+    return daysOfWeek[date.getDay()];
 }
 
 export const formatDate = (dateString: any) => {
-    const date = new Date(dateString); // Convert string to Date object
-    const options = { month: "short", day: "numeric" }; // Short month and numeric day
+    const date = new Date(dateString); 
+    const options = { month: "short", day: "numeric" }; 
     return new Intl.DateTimeFormat("en-US", options).format(date);
   };
 
 export const hasTimePassed = (timeString: any) => {
-    const currentTime = new Date(); // Get the current date and time
-    const [hours, minutes, seconds] = timeString.split(":").map(Number); // Split timeString into hours, minutes, seconds
+    const currentTime = new Date(); 
+    const [hours, minutes, seconds] = timeString.split(":").map(Number);
   
-    // Create a Date object for the given time today
     const givenTime = new Date();
     givenTime.setHours(hours, minutes, seconds, 0);
   
-    // Compare the current time with the given time
-    return currentTime > givenTime; // Returns true if the current time is past the given time
+    return currentTime > givenTime;
   };

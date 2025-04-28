@@ -818,7 +818,9 @@
     "ios": {},
     "android": {}
   },
-  "assets": [],
+  "assets": [
+    "./assets/fonts/"
+  ],
   "project": {
     "ios": {
       "sourceDir": "/Users/urvashipatidar/Documents/ReactNative/WeatherApp/ios",
@@ -827,6 +829,7 @@
         "path": ".",
         "isWorkspace": true
       },
+      "automaticPodsInstallation": true,
       "assets": []
     },
     "android": {

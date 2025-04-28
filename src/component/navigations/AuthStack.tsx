@@ -31,10 +31,7 @@ const AuthStack = () => {
             <>
                 <Stack.Screen name={strings.SPLASH} component={Splash} />
                 <Stack.Screen name={strings.LOGIN} component={Login} />
-
             </>
-
-
         </Stack.Navigator>
     )
 }
